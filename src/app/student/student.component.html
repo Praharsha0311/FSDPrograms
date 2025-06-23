@@ -1,0 +1,20 @@
+<h2>Student list</h2>
+<form (onSubmit)="addStudent()" #studentForm="ngForm">
+    <input type="text" [(ngModel)]="newStudent.name" name="name" placeholder="Name" required>
+    <input type="text" [(ngModel)]="newStudent.stuclass" name="stuclass" placeholder="Class" required>
+    <button type="submit">Add</button>
+</form>
+
+<h2>Details</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+    </tr>
+    <tr *ngFor="let student of students">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.stuclass}}</td>
+    </tr>
+</table>

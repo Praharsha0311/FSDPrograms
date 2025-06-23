@@ -1,0 +1,12 @@
+<form>
+  <label>Name:</label>
+  <input
+    type="text"
+    [(ngModel)]="name"
+    (focus)="addHighlight()"
+    (blur)="removeHighlight()"
+    [ngClass]="inputClass"
+    name="name"
+  />
+  <p>Hello, {{ name }}</p>
+</form>

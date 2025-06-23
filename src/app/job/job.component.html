@@ -1,0 +1,38 @@
+<h2>Job application</h2>
+<form #jobForm="ngForm" (ngSubmit)="submitForm(jobForm)" novalidate>
+  Name:<input
+    type="text"
+    name="name"
+    [(ngModel)]="user.name"
+    #name="ngModel"
+    required
+  />
+  <span *ngIf="(name.dirty || submitted || name.touched && name.invalid)"
+    >Name is required</span
+  ><br>
+
+  Email:<input
+    type="email"
+    name="email"
+    [(ngModel)]="user.email"
+    #email="ngModel"
+    required
+  />
+  <span *ngIf="(email.dirty || submitted) && email.touched && email.invalid"
+    >email is required</span
+  >
+
+  Role:<input
+    type="text"
+    name="role"
+    [(ngModel)]="user.role"
+    #role="ngModel"
+    required
+  />
+  <span *ngIf="(role.dirty || submitted) && role.touched && role.invalid"
+    >role is required</span
+  >
+
+  <button type="submit" [disabled]="jobForm.invalid">Register</button>
+</form>
+<p *ngIf="submitted && jobForm.valid">Submitted</p>
